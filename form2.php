@@ -1,3 +1,24 @@
+<?php require_once('include/connection.php') ?>
+
+<?php
+
+if(isset($_POST['submit'])){
+    $regNumber=$_POST["regNumber"];
+    $nicNo=$_POST["nicNo"];
+    $telNumber=$_POST["telNumber"];
+
+    $query = "INSERT INTO table02 (regNumber,nicNo,telNumber)
+                VALUES ('{$regNumber}','{$nicNo}','{$telNumber}')";
+
+    $result=mysqli_query($connection,$query);
+        if($result){
+             echo "1 record added.";
+        }else{
+             echo "Database Query failed!";
+        }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,30 +29,17 @@
 </head>
 <body>
     <button><a href="index.html">Home</a></button>
-    <?php
-
-
-        if(isset($_POST['submit2'])){
-            $regNumber2=$_POST["regNumber2"];
-            $nicNo=$_POST["nicNo"];
-            $telNumber=$_POST["telNumber"];
-        }
-    ?>
-
-
-
-
-    
     <br><br><br>
 
-    <form method="POST" action="result.php" >
-            <input type="text"  name="regNumber2" placeholder="ENxxxxx">
+    <form method="POST" >
+            <input type="text"  name="regNumber" placeholder="ENxxxxx">
             <br><br>
             <input type="text" name="nicNo" placeholder="ID number">
             <br><br>
             <input type="text" name="telNumber" placeholder="Tel-Number">
             <br><br>
-            <input type="submit" value="submit" name="submit2">
+            <input type="submit" value="submit" name="submit">
     </form>
 </body>
 </html>
+<?php mysqli_close($connection); ?>

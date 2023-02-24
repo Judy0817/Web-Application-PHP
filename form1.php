@@ -1,3 +1,26 @@
+<?php require_once('include/connection.php') ?>
+<?php
+if(isset($_POST['submit1']))
+{
+    $title=$_POST['title'];
+    $name=$_POST['name'];
+    $regNumber=$_POST['regNumber'];
+    $email=$_POST['email'];
+
+
+    $query = "INSERT INTO table01 (title,name,regNumber,email)
+                VALUES ('{$title}','{$name}','{$regNumber}','{$email}')";
+
+    $result=mysqli_query($connection,$query);
+        if($result){
+             echo "1 record added.";
+        }else{
+             echo "Database Query failed!";
+        }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,14 +30,7 @@
     <title>Form 1</title>
 </head>
 <body>
-    <?php
-        if(isset($_POST['submit1'])){
-            $name=$_POST["name"];
-            $title=$_POST["title"];
-            $regNumber=$_POST["regNumber"];
-            $email=$_POST["email"];
-        }
-    ?>
+   
 
 
 
@@ -23,7 +39,7 @@
     
     <br><br><br>
 
-    <form method="POST" action="result.php" >
+    <form method="POST"  >
             <input type="text"  name="title" placeholder="Titile">
             <br><br>
             <input type="text" name="name" placeholder="Your name">
@@ -37,3 +53,4 @@
     
 </body>
 </html>
+<?php mysqli_close($connection); ?>
