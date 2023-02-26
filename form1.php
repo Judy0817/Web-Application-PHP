@@ -39,7 +39,7 @@ if(isset($_POST['submit1']))
     
     <br><br><br>
 
-    <form method="POST"  >
+    <form method="POST">
             <input type="text"  name="title" placeholder="Titile">
             <br><br>
             <input type="text" name="name" placeholder="Your name">
@@ -48,7 +48,8 @@ if(isset($_POST['submit1']))
             <br><br>
             <input type="email" name="email" placeholder="E-mail">
             <br><br>
-            <input type="submit" value="submit" name="submit1">
+            <button type="submit" name="submit1">Submit</button>
+         
     </form>
     
 </body>

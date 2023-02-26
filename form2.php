@@ -2,7 +2,7 @@
 
 <?php
 
-if(isset($_POST['submit'])){
+if(isset($_POST['submit2'])){
     $regNumber=$_POST["regNumber"];
     $nicNo=$_POST["nicNo"];
     $telNumber=$_POST["telNumber"];
@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
             <br><br>
             <input type="text" name="telNumber" placeholder="Tel-Number">
             <br><br>
-            <input type="submit" value="submit" name="submit">
+            <input type="submit" value="submit" name="submit2">
     </form>
 </body>
 </html>

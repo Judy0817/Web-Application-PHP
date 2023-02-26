@@ -2,33 +2,24 @@
 
 <?php
 
-        if(isset($_POST['submit'])){
+        if(isset($_POST['operation'])){
             $input1=$_POST["input1"];
             $input2=$_POST["input2"];
-            $operation=$_POST["submit"];
+            $operation=$_POST["operation"];
           
-           if($operation=="+"){
-                $answer=$input1+$input1;
+           if($operation=="add"){
+                $answer=$input1+$input2;
            }
-           else if ($operation=="-"){
-                $answer=$input1-$input1;
+           else if ($operation=="sub"){
+                $answer=$input1-$input2;
            }
-           else if ($operation=="x"){
-            $answer=$input1*$input1;
+           else if ($operation=="mul"){
+            $answer=$input1*$input2;
            }
-           else if ($operation=="/"){
-            $answer=$input1/$input1;
+           else if ($operation=="div"){
+            $answer=$input1/$input2;
            }
 
-           $query = "INSERT INTO table03 (firstName,lastName,email,password)
-                VALUES ('{$firstName}','{$lastName}','{$email}','{$hashed_password}')";
-
-    $result=mysqli_query($connection,$query);
-    if($result){
-        echo "1 record added.";
-    }else{
-        echo "Database Query failed!";
-    }
         }
     ?>
 
@@ -49,10 +40,10 @@
             <br><br>
             <input type="number" name="input2" placeholder="enter second number">
             <br><br>
-            <input type="submit" value="+" name="submit">
-            <input type="submit" value="-" name="submit">
-            <input type="submit" value="x" name="submit">
-            <input type="submit" value="/" name="submit">
+            <input type="submit" value="add" name="operation">
+            <input type="submit" value="sub" name="operation">
+            <input type="submit" value="mul" name="operation">
+            <input type="submit" value="div" name="operation">
     </form>
 </body>
 </html>
